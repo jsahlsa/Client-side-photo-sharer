@@ -1,0 +1,39 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+html {
+  background: rebeccapurple;
+  color: papayawhip;
+  min-height: 100%;
+}
+
+body {
+  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 60px;
+}
+
+.App {
+}
+
+img {
+  width: 100%;
+  animation: round 3s infinite alternate cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes round {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
