@@ -2,14 +2,19 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
-    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+  
 }
 
 html {
   background: rebeccapurple;
   color: papayawhip;
   min-height: 100%;
+  display: grid;
+  align-content: center;
+  font-family: system, -apple-system, '.SFNSText-Regular', 'San Francisco',
+    'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif,
+    'Apple Color Emoji', /* Emojis*/ 'Segoe UI Emoji',
+    /* Emojis*/ 'Segoe UI Symbol'; /* Emojis*/
 }
 
 body {
@@ -18,7 +23,22 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding: 60px;
+  padding: 20px;
+}
+
+pre, code {
+  font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+    'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+    'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
+    monospace;
+}
+
+pre {
+  background-color: papayawhip;
+  width: 100%;
+  padding: 30px;
+  border-left: plum 5px solid;
+  color: rebeccapurple;
 }
 
 .App {

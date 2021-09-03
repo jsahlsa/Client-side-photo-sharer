@@ -3,13 +3,19 @@ import img from '../img/j.svg';
 
 export default function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <img src={img} alt="big letter J" />
-      
+
       <h1>Base React App</h1>
       <h3>
         Edit <code>App.js</code> to get started
       </h3>
+      <pre>{
+        `npm install
+npm run dev
+npm run build`
+      }
+      </pre>
     </div>
   );
 }
