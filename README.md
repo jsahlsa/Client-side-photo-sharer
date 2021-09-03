@@ -3,4 +3,4 @@
 ### Used to share photos with family
 
 On desktop users may select more than one photo and download as a zip file.
-**Built using [JSZip](https://stuk.github.io/jszip/) and React**
+**Built using [JSZip](https://stuk.github.io/jszip/) and [React](https://reactjs.org/)**
