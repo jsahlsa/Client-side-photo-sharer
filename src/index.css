@@ -8,8 +8,6 @@ html {
   background: rebeccapurple;
   color: papayawhip;
   min-height: 100%;
-  display: grid;
-  align-content: center;
   font-family: system, -apple-system, '.SFNSText-Regular', 'San Francisco',
     'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif,
     'Apple Color Emoji', /* Emojis*/ 'Segoe UI Emoji',
@@ -18,11 +16,6 @@ html {
 
 body {
   margin: 0 auto;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  padding: 20px;
 }
 
 pre,
@@ -33,24 +26,27 @@ code {
     monospace;
 }
 
-pre {
-  background-color: papayawhip;
-  width: 100%;
-  padding: 30px;
-  border-left: plum 5px solid;
-  color: rebeccapurple;
+h1 {
+  font-size: 5em;
 }
 
 img {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+
   object-fit: cover;
+}
+
+.App {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
 }
 
 .photos-wrapper {
   max-width: 1200px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 300px);
   grid-gap: 20px;
   padding: 10px;
 }
