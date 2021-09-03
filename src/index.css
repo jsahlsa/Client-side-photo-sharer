@@ -2,7 +2,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  
 }
 
 html {
@@ -26,7 +25,8 @@ body {
   padding: 20px;
 }
 
-pre, code {
+pre,
+code {
   font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
     'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
     'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
@@ -41,19 +41,28 @@ pre {
   color: rebeccapurple;
 }
 
-.App {
-}
-
 img {
-  width: 100%;
-  animation: round 3s infinite alternate cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
 }
 
-@keyframes round {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.photos-wrapper {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+  padding: 10px;
+}
+
+.Component1 {
+  padding: 20px;
+  border: plum 3px solid;
+  display: grid;
+  justify-content: center;
+  align-content: space-between;
+}
+
+.Component1.checked-on {
+  background-color: plum;
 }
