@@ -4,8 +4,6 @@ import JSZip from 'jszip';
 import Photo from './Photo';
 import images from '../img/*.jpg';
 
-console.log(images);
-
 const DATA = [
   {
     name: 'photo1',
@@ -24,6 +22,7 @@ const DATA = [
 export default function App() {
   //get data of each image
   const fetchData = (file) => fetch(file).then((res) => res.blob());
+  console.log(fetchData)
 
   function download() {
     // select each input
@@ -31,7 +30,7 @@ export default function App() {
     console.log(allPhotos);
 
     let photoArray = [];
-    const downloadDiv = document.querySelector('.download-wrapper');
+    const downloadDiv = document.querySelector('.download-button');
     allPhotos.forEach((item) => {
       if (item.checked) {
         // select photos parent container
