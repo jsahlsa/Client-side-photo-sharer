@@ -19,7 +19,7 @@
   --minion-yellow-dark: hsla(51, 82%, 40%, 1);
   --gray-web-dark: hsla(0, 0%, 30%, 1);
   --ghost-white: hsla(240, 100%, 99%, 1);
-  --ghost-white-trans: hsla(240, 100%, 99%, 0.5);
+  --ghost-white-trans: hsla(240, 100%, 99%, 0.2);
 }
 
 html,
@@ -57,9 +57,10 @@ code {
 }
 
 h1 {
-  font-size: var(--step-4);
+  font-size: var(--step-5);
   font-weight: 900;
   margin: 20vh 0 10vh 0;
+  font-family: 'Bree Serif', serif;
 }
 
 h3::after,
@@ -75,14 +76,18 @@ h4::after {
   box-shadow: -5px 10px 0 var(--rebecca-purple-dark);
 }
 
+h3,
+h4 {
+  font-family: 'Bree Serif', serif;
+  position: relative;
+}
+
 h3 {
   font-size: var(--step-3);
-  position: relative;
 }
 
 h4 {
   font-size: var(--step-2);
-  position: relative;
 }
 
 img {
@@ -168,7 +173,7 @@ img:active {
 .bottom-wrapper {
   display: grid;
   padding: 0 10px 0 10px;
-  color: var(--rebecca-purple);
+  color: var(--ghost-white);
 }
 
 .bottom-wrapper.little-screen > label {
