@@ -7,6 +7,19 @@
   --step-3: clamp(2.27rem, calc(2.01rem + 1.29vw), 2.93rem);
   --step-4: clamp(2.72rem, calc(2.36rem + 1.83vw), 3.66rem);
   --step-5: clamp(3.27rem, calc(2.75rem + 2.56vw), 4.58rem);
+  --rebecca-purple: hsla(279, 60%, 36%, 1);
+  --minion-yellow: hsla(51, 82%, 60%, 1);
+  --gray-web: hsla(0, 0%, 50%, 1);
+  --black: hsla(0, 0%, 0%, 1);
+  --rebecca-purple-light: hsla(279, 60%, 56%, 1);
+  --minion-yellow-light: hsla(51, 82%, 80%, 1);
+  --gray-web-light: hsla(0, 0%, 70%, 1);
+  --black-light: hsla(0, 0%, 10%, 1);
+  --rebecca-purple-dark: hsla(279, 60%, 16%, 1);
+  --minion-yellow-dark: hsla(51, 82%, 40%, 1);
+  --gray-web-dark: hsla(0, 0%, 30%, 1);
+  --ghost-white: hsla(240, 100%, 99%, 1);
+  --ghost-white-trans: hsla(240, 100%, 99%, 0.5);
 }
 
 html,
@@ -16,13 +29,19 @@ body {
 }
 
 html {
-  background: rebeccapurple;
-  color: papayawhip;
+  background: var(--rebecca-purple);
+  background-image: url(/img/fireworks.svg), url(/img/bg.svg);
+  background-repeat: repeat, no-repeat;
+  background-size: 600px, cover;
+  background-position: bottom, bottom;
+  background-blend-mode: saturation;
+  color: var(--ghost-white);
   min-height: 100%;
   font-family: system, -apple-system, '.SFNSText-Regular', 'San Francisco',
     'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif,
     'Apple Color Emoji', /* Emojis*/ 'Segoe UI Emoji',
     /* Emojis*/ 'Segoe UI Symbol'; /* Emojis*/
+  font-size: var(--step--1);
 }
 
 body {
@@ -38,13 +57,48 @@ code {
 }
 
 h1 {
-  font-size: var(--step-5);
+  font-size: var(--step-4);
+  font-weight: 900;
+  margin: 20vh 0 10vh 0;
+}
+
+h3::after,
+h4::after {
+  content: '';
+  position: absolute;
+  background-color: var(--minion-yellow-light);
+  height: 5px;
+  width: 60%;
+  top: 110%;
+  right: 40%;
+  border-radius: 3px;
+  box-shadow: -5px 10px 0 var(--rebecca-purple-dark);
+}
+
+h3 {
+  font-size: var(--step-3);
+  position: relative;
+}
+
+h4 {
+  font-size: var(--step-2);
+  position: relative;
 }
 
 img {
   width: 250px;
   height: 250px;
   object-fit: cover;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+img:hover {
+  transform: scale(1.05);
+  filter: blur(2px);
+}
+img:active {
+  transform: scale(1.05);
+  filter: contrast(200%);
 }
 
 .App {
@@ -54,9 +108,10 @@ img {
 }
 
 .photos-wrapper {
-  max-width: 1200px;
+  max-width: 1300px;
+  width: 100%;
   display: grid;
-  justify-content: center;
+  justify-content: start;
   grid-template-columns: repeat(auto-fill, 300px);
   grid-gap: 20px;
   padding: 10px;
@@ -64,30 +119,76 @@ img {
 
 .Component1 {
   padding: 20px;
-  border: plum 3px solid;
+  border: var(--gray-web) 8px solid;
+  background-color: var(--ghost-white-trans);
+  filter: drop-shadow(2px 2px 5px var(--gray-web-dark));
   display: grid;
   justify-content: center;
   align-content: space-between;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .Component1.checked-on {
-  background-color: plum;
+  background-color: var(--minion-yellow-light);
 }
 
 .download-button {
   border: none;
   cursor: pointer;
-  background-color: aqua;
+  background-color: var(--gray-web-dark);
+  border-top: 5px var(--minion-yellow) solid;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: var(--step-0);
+  color: var(--ghost-white);
+  font-weight: 700;
+  border-radius: 10px 10px 0 0;
   visibility: hidden;
   position: fixed;
   height: 0vh;
   bottom: 0vh;
-  left: 0;
-  width: 100vw;
-  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  left: 40vw;
+  width: 20vw;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.download-button:hover {
+  background-color: var(--minion-yellow);
+  border-top: 5px var(--gray-web) solid;
+}
+.download-button:active {
+  background-color: var(--minion-yellow-light);
+  border-top: 5px var(--gray-web-light) solid;
 }
 
 .download-button.download-on {
   visibility: visible;
-  height: 5vh;
+  height: 10vh;
+}
+
+.bottom-wrapper {
+  display: grid;
+  padding: 0 10px 0 10px;
+  color: var(--rebecca-purple);
+}
+
+.bottom-wrapper.little-screen > label {
+  display: none;
+}
+
+.bottom-wrapper.little-screen > label > input {
+  display: none;
+}
+
+label {
+  display: grid;
+  grid-template-columns: 1fr 30px;
+  justify-content: space-between;
+  font-size: var(--step--2);
+  text-transform: capitalize;
+}
+
+.photo-name {
+  font-family: 'Bree Serif', serif;
+  font-size: var(--step--2);
+  margin: 0;
 }

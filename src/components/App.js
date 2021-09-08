@@ -20,9 +20,11 @@ const DATA = [
 ];
 
 export default function App() {
+  let width = window.screen.width;
+  console.log(width);
   //get data of each image
   const fetchData = (file) => fetch(file).then((res) => res.blob());
-  console.log(fetchData)
+  console.log(fetchData);
 
   function download() {
     // select each input
@@ -48,7 +50,7 @@ export default function App() {
       }
       // show download button only on large screens when one or
       // more are checked
-      photoArray.length > 0 && window.screen.width > 1024
+      photoArray.length > 0 && width > 1024
         ? downloadDiv.classList.add('download-on')
         : downloadDiv.classList.remove('download-on');
     });
@@ -64,7 +66,7 @@ export default function App() {
     // create folder in jszip container
     var photos = zip.folder('photos');
     // checks if more than one photo is checked & user is on desktop
-    if (photoArray.length > 0 && window.screen.width > 1024) {
+    if (photoArray.length > 0 && width > 1024) {
       photoArray.map((photo) => {
         // gets data blob from each photo
         const data = fetchData(photo);
@@ -91,11 +93,20 @@ export default function App() {
   return (
     <div className="App" onChange={download}>
       <header>
-        <h1>4th of July Photos</h1>
+        <h1>🎇 4th of July Photos 🎆</h1>
+        <h3>Tap or click to download</h3>
+        <h4>Click checkboxes on a desktop to download multiple as ZIP</h4>
       </header>
       <div className="photos-wrapper">
         {DATA.map((item) => {
-          return <Photo photo={item.path} name={item.name} key={item.name} />;
+          return (
+            <Photo
+              photo={item.path}
+              name={item.name}
+              key={item.name}
+              width={width}
+            />
+          );
         })}
       </div>
       <div className="download-wrapper">

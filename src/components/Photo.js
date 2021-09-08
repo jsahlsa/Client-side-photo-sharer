@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Component1({ name, photo }) {
+export default function Component1({ name, photo, width }) {
   return (
     <div className="Component1">
       <a download={name} href={photo} target="_blank" rel="noreferrer">
@@ -8,16 +8,14 @@ export default function Component1({ name, photo }) {
       </a>
       <div
         className={
-          window.screen.width > 1024
+          width > 1024
             ? 'bottom-wrapper big-screen'
             : 'bottom-wrapper little-screen'
         }
       >
-        <p>{name}</p>
+        <p className="photo-name">{name}</p>
+
         <label htmlFor={name}>
-          {window.screen.width > 1024
-            ? 'check box to download'
-            : 'touch photo to download'}
           <input id={name} type="checkbox" />
         </label>
       </div>
