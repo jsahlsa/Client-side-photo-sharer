@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function Component1({ name, photo, width }) {
+  
   return (
     <div className="Component1">
       <a download={name} href={photo} target="_blank" rel="noreferrer">

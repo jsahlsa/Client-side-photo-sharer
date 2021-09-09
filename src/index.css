@@ -12,7 +12,7 @@
   --gray-web: hsla(0, 0%, 50%, 1);
   --black: hsla(0, 0%, 0%, 1);
   --rebecca-purple-light: hsla(279, 60%, 56%, 1);
-  --minion-yellow-light: hsla(51, 82%, 80%, 1);
+  --minion-yellow-light: hsla(51, 82%, 80%, 0.5);
   --gray-web-light: hsla(0, 0%, 70%, 1);
   --black-light: hsla(0, 0%, 10%, 1);
   --rebecca-purple-dark: hsla(279, 60%, 16%, 1);
@@ -66,6 +66,7 @@ h1 {
   font-weight: 900;
   margin: 20vh 0 10vh 0;
   font-family: 'Bree Serif', serif;
+  line-height: calc(0.25rem * var(--step-5));
 }
 
 h3::after,
@@ -121,10 +122,9 @@ img:active {
   max-width: 1300px;
   width: 100%;
   display: grid;
-  justify-content: start;
+  justify-content: center;
   grid-template-columns: repeat(auto-fill, 300px);
   grid-gap: 20px;
-  padding: 20px;
 }
 
 .Component1 {
@@ -177,6 +177,8 @@ img:active {
 
 .bottom-wrapper {
   display: grid;
+  grid-template-columns: 1fr 20px;
+  align-content: center;
   padding: 0 10px 0 10px;
   color: var(--ghost-white);
 }
@@ -191,6 +193,27 @@ img:active {
 
 input[type='checkbox'] {
   appearance: none;
+  position: relative;
+  border: solid 3px var(--gray-web-dark);
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+input[type='checkbox']:before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  background-color: var(--minion-yellow);
+  transform: translate(3px, 3px) scale(0);
+  border-radius: 2px;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+input[type='checkbox']:checked::before {
+  visibility: visible;
+  transform: translate(3px, 3px) scale(1);
+  transition: all 0.3s cubic-bezier(0.25, 0.25, 0.56, 2);
 }
 
 label {
