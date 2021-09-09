@@ -114,7 +114,17 @@ export default function App() {
           Download
         </button>
       </div>
-      <footer></footer>
+      <footer>
+        <p className="footer">
+          Made with 💻 by{' '}
+          <a
+            className="author"
+            href="https://github.com/jsahlsa/Client-side-photo-sharer"
+          >
+            jsahlsa
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }

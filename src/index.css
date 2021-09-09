@@ -20,6 +20,14 @@
   --gray-web-dark: hsla(0, 0%, 30%, 1);
   --ghost-white: hsla(240, 100%, 99%, 1);
   --ghost-white-trans: hsla(240, 100%, 99%, 0.2);
+  --monospace: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+    'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+    'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
+    monospace;
+  --modern: system, -apple-system, '.SFNSText-Regular', 'San Francisco',
+    'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif,
+    'Apple Color Emoji', /* Emojis*/ 'Segoe UI Emoji',
+    /* Emojis*/ 'Segoe UI Symbol'; /* Emojis*/
 }
 
 html,
@@ -37,10 +45,7 @@ html {
   background-blend-mode: saturation;
   color: var(--ghost-white);
   min-height: 100%;
-  font-family: system, -apple-system, '.SFNSText-Regular', 'San Francisco',
-    'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif,
-    'Apple Color Emoji', /* Emojis*/ 'Segoe UI Emoji',
-    /* Emojis*/ 'Segoe UI Symbol'; /* Emojis*/
+  font-family: var(--monospace);
   font-size: var(--step--1);
 }
 
@@ -71,15 +76,16 @@ h4::after {
   height: 5px;
   width: 60%;
   top: 110%;
-  right: 40%;
+  right: 30%;
   border-radius: 3px;
   box-shadow: -5px 10px 0 var(--rebecca-purple-dark);
 }
 
+h1,
 h3,
 h4 {
-  font-family: 'Bree Serif', serif;
   position: relative;
+  padding: 0 5%;
 }
 
 h3 {
@@ -109,7 +115,6 @@ img:active {
 .App {
   margin: 0 auto;
   max-width: 1200px;
-  padding: 20px;
 }
 
 .photos-wrapper {
@@ -119,7 +124,7 @@ img:active {
   justify-content: start;
   grid-template-columns: repeat(auto-fill, 300px);
   grid-gap: 20px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .Component1 {
@@ -184,16 +189,36 @@ img:active {
   display: none;
 }
 
+input[type='checkbox'] {
+  appearance: none;
+}
+
 label {
-  display: grid;
-  grid-template-columns: 1fr 30px;
-  justify-content: space-between;
-  font-size: var(--step--2);
-  text-transform: capitalize;
+  position: relative;
 }
 
 .photo-name {
   font-family: 'Bree Serif', serif;
   font-size: var(--step--2);
   margin: 0;
+}
+
+footer {
+  display: grid;
+  justify-content: center;
+  align-content: end;
+  padding: 2em 2em 0 2em;
+}
+
+.author {
+  text-decoration: none;
+  font-family: 'Bree Serif', serif;
+  box-shadow: 0 5px 0 var(--minion-yellow);
+  color: var(--minion-yellow);
+  padding: 2px;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.author:hover {
+  padding-bottom: 5px;
 }
