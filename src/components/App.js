@@ -95,7 +95,10 @@ export default function App() {
       <header>
         <h1>🎇 4th of July Photos 🎆</h1>
         <h3>Tap or click to download</h3>
-        <h4>Click checkboxes on a desktop to download multiple as ZIP</h4>
+        <h4>
+          Click checkboxes on a desktop to download multiple as ZIP (May take a
+          bit, photos are large)
+        </h4>
       </header>
       <div className="photos-wrapper">
         {DATA.map((item) => {
