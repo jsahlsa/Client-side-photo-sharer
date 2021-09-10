@@ -42,7 +42,7 @@ html {
   background-repeat: repeat, no-repeat;
   background-size: 600px, cover;
   background-position: bottom, bottom;
-  background-blend-mode: saturation;
+  background-blend-mode: saturation, saturation;
   color: var(--ghost-white);
   min-height: 100%;
   font-family: var(--monospace);
