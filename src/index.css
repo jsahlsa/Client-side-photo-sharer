@@ -36,19 +36,6 @@ body {
   margin: 0;
 }
 
-html {
-  background-color: var(--rebecca-purple);
-  background-image: url(/img/fireworks.svg), url(/img/bg.svg);
-  background-repeat: repeat, no-repeat;
-  background-size: 600px, cover;
-  background-position: bottom, bottom;
-  background-blend-mode: overlay, overlay;
-  color: var(--ghost-white);
-  min-height: 100%;
-  font-family: var(--monospace);
-  font-size: var(--step--1);
-}
-
 body {
   margin: 0 auto;
 }
@@ -244,4 +231,19 @@ footer {
 
 .author:hover {
   padding-bottom: 5px;
+}
+
+html {
+  background-color: var(--rebecca-purple);
+  background-image: url(/img/fireworks.svg), url(/img/bg.svg);
+  background-repeat: repeat, no-repeat;
+  background-size: 600px, cover;
+  background-position: bottom, bottom;
+  background-blend-mode: overlay, overlay;
+  color: var(--ghost-white);
+  min-height: 100%;
+  font-family: var(--monospace);
+  font-size: var(--step--1);
+  visibility: visible;
+  opacity: 1;
 }

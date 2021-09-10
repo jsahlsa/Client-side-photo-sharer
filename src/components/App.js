@@ -24,7 +24,6 @@ export default function App() {
   console.log(width);
   //get data of each image
   const fetchData = (file) => fetch(file).then((res) => res.blob());
-  console.log(fetchData);
 
   function download() {
     // select each input
