@@ -37,12 +37,12 @@ body {
 }
 
 html {
-  background: var(--rebecca-purple);
+  background-color: var(--rebecca-purple);
   background-image: url(/img/fireworks.svg), url(/img/bg.svg);
   background-repeat: repeat, no-repeat;
   background-size: 600px, cover;
   background-position: bottom, bottom;
-  background-blend-mode: saturation;
+  background-blend-mode: overlay, overlay;
   color: var(--ghost-white);
   min-height: 100%;
   font-family: var(--monospace);
