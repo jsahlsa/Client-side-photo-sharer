@@ -88,12 +88,12 @@ img {
   width: 250px;
   height: 250px;
   object-fit: cover;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.1s ease-in;
 }
 
 img:hover {
   transform: scale(1.05);
-  filter: blur(2px);
+  filter: sepia(60%);
 }
 img:active {
   transform: scale(1.05);

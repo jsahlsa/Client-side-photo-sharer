@@ -4,20 +4,27 @@ import JSZip from 'jszip';
 import Photo from './Photo';
 import images from '../img/*.jpg';
 
-const DATA = [
-  {
-    name: 'photo1',
-    path: images[1],
-  },
-  {
-    name: 'photo2',
-    path: images[2],
-  },
-  {
-    name: 'photo3',
-    path: images[3],
-  },
-];
+console.log(images[0]);
+
+const DATA = handleData(images);
+
+function handleData(imageObject) {
+  let data = [];
+  // iterate over photo object
+  for (let key in imageObject) {
+    console.log(imageObject[key]);
+    // split each key value on the period
+    let splitName = imageObject[key].split('.');
+    // extract filename from array
+    let filename = splitName[splitName.length - 2];
+    // push each object to data array
+    data.push({ name: filename, path: imageObject[key] });
+  }
+
+  return data;
+}
+
+console.log(handleData(images));
 
 export default function App() {
   let width = window.screen.width;
