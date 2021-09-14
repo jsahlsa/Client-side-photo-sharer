@@ -88,7 +88,7 @@ img {
   width: 250px;
   height: 250px;
   object-fit: cover;
-  transition: all 0.1s ease-in;
+  transition: transform 0.2s ease-in;
 }
 
 img:hover {
@@ -122,7 +122,7 @@ img:active {
   display: grid;
   justify-content: center;
   align-content: space-between;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .Component1.checked-on {
@@ -142,11 +142,14 @@ img:active {
   border-radius: 10px 10px 0 0;
   visibility: hidden;
   position: fixed;
-  height: 0vh;
+  height: 50px;
+  transform: translateY(50px);
   bottom: 0vh;
   left: 40vw;
   width: 20vw;
-  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: visibility 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .download-button:hover {
   background-color: var(--minion-yellow);
@@ -159,7 +162,7 @@ img:active {
 
 .download-button.download-on {
   visibility: visible;
-  height: 10vh;
+  transform: translateY(0px);
 }
 
 .bottom-wrapper {
@@ -195,12 +198,12 @@ input[type='checkbox']:before {
   transform: translate(3px, 3px) scale(0);
   border-radius: 2px;
   visibility: hidden;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 input[type='checkbox']:checked::before {
   visibility: visible;
   transform: translate(3px, 3px) scale(1);
-  transition: all 0.3s cubic-bezier(0.25, 0.25, 0.56, 2);
+  transition: transform 0.3s cubic-bezier(0.25, 0.25, 0.56, 2);
 }
 
 label {
@@ -226,7 +229,7 @@ footer {
   box-shadow: 0 5px 0 var(--minion-yellow);
   color: var(--minion-yellow);
   padding: 2px;
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: box-shadow 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .author:hover {
