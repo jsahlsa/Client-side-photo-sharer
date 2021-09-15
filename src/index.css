@@ -88,7 +88,8 @@ img {
   width: 250px;
   height: 250px;
   object-fit: cover;
-  transition: transform 0.2s ease-in;
+  will-change: transform, filter;
+  transition: transform 0.2s linear;
 }
 
 img:hover {
@@ -122,11 +123,11 @@ img:active {
   display: grid;
   justify-content: center;
   align-content: space-between;
-  transition: background-color 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .Component1.checked-on {
-  background-color: var(--minion-yellow-light);
+  opacity: 0.8;
 }
 
 .download-button {
@@ -142,8 +143,8 @@ img:active {
   border-radius: 10px 10px 0 0;
   visibility: hidden;
   position: fixed;
-  height: 50px;
-  transform: translateY(50px);
+  height: 70px;
+  transform: translateY(70px);
   bottom: 0vh;
   left: 40vw;
   width: 20vw;
@@ -188,6 +189,7 @@ input[type='checkbox'] {
   width: 24px;
   height: 24px;
   border-radius: 4px;
+  cursor: pointer;
 }
 input[type='checkbox']:before {
   content: '';

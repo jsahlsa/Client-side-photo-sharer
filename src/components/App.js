@@ -12,7 +12,6 @@ function handleData(imageObject) {
   let data = [];
   // iterate over photo object
   for (let key in imageObject) {
-    console.log(imageObject[key]);
     // split each key value on the period
     let splitName = imageObject[key].split('.');
     // extract filename from array
@@ -28,14 +27,12 @@ console.log(handleData(images));
 
 export default function App() {
   let width = window.screen.width;
-  console.log(width);
   //get data of each image
   const fetchData = (file) => fetch(file).then((res) => res.blob());
 
   function download() {
     // select each input
     const allPhotos = document.querySelectorAll('input');
-    console.log(allPhotos);
 
     let photoArray = [];
     const downloadDiv = document.querySelector('.download-button');
@@ -66,7 +63,6 @@ export default function App() {
   function downloadPhotos() {
     // gets array of checked photos from download function
     let photoArray = download();
-    console.log(photoArray);
     // create new jszip container
     var zip = new JSZip();
     // create folder in jszip container
@@ -77,12 +73,10 @@ export default function App() {
         // gets data blob from each photo
         const data = fetchData(photo);
         // get file extension
-        console.log(data, 'Hello');
         const fileExtension = photo.split('.').pop();
         const fileNameArray = photo.split('.');
         // get filname from array of file url
         const fileName = fileNameArray[fileNameArray.length - 2];
-        console.log(fileName);
         // add each photo to zip
         return photos.file(`${fileName}.${fileExtension}`, data, {
           base64: true,
@@ -90,7 +84,6 @@ export default function App() {
       });
     }
 
-    console.log(photos);
     zip.generateAsync({ type: 'blob' }).then(function (blob) {
       saveAs(blob, 'photos.zip');
     });
