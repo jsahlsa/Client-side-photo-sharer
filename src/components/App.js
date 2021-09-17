@@ -4,9 +4,40 @@ import JSZip from 'jszip';
 import Photo from './Photo';
 import images from '../img/*.jpg';
 
-console.log(images[0]);
+console.log(DATA);
 
 const DATA = handleData(images);
+
+function makeThumbnails(img) {
+  const canvas = document.createElement('canvas');
+
+  let maxWidth = '300px';
+  let maxHeight = '300px';
+
+  let width = img.width;
+  let height = img.height;
+
+  // calculate height and width constraining proportions
+  if (width > height) {
+    if (width > maxWidth) {
+      height = Math.round((height *= maxWidth / width));
+      width = maxWidth;
+    }
+  } else {
+    if (height > maxHeight) {
+      width = Math.round((width *= maxHeight / height));
+      height = maxHeight;
+    }
+  }
+
+  // resize canvas and draw image into it
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(img, 0, 0, width, height);
+
+  return canvas.toDataURL('image/jpeg', 1.0);
+}
 
 function handleData(imageObject) {
   let data = [];
@@ -16,8 +47,14 @@ function handleData(imageObject) {
     let splitName = imageObject[key].split('.');
     // extract filename from array
     let filename = splitName[splitName.length - 2];
+
+    let thumbnail = makeThumbnails(imageObject[key]);
     // push each object to data array
-    data.push({ name: filename, path: imageObject[key] });
+    data.push({
+      name: filename,
+      path: imageObject[key],
+      thumbnailImage: thumbnail,
+    });
   }
 
   return data;
@@ -107,6 +144,7 @@ export default function App() {
               name={item.name}
               key={item.name}
               width={width}
+              thumbnail={item.thumbnailImage}
             />
           );
         })}
