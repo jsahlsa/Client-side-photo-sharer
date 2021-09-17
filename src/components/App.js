@@ -10,7 +10,6 @@ const DATA = handleData(images);
 
 function makeThumbnails(img) {
   const canvas = document.createElement('canvas');
-
   let maxWidth = '300px';
   let maxHeight = '300px';
 
@@ -34,6 +33,8 @@ function makeThumbnails(img) {
   canvas.width = width;
   canvas.height = height;
   const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, width, height);
   ctx.drawImage(img, 0, 0, width, height);
 
   return canvas.toDataURL('image/jpeg', 1.0);
@@ -48,7 +49,12 @@ function handleData(imageObject) {
     // extract filename from array
     let filename = splitName[splitName.length - 2];
 
-    let thumbnail = makeThumbnails(imageObject[key]);
+    const preview = document.createElement('img');
+    
+    preview.src = imageObject[key];
+    console.log(preview, 'preview');
+    let thumbnail = makeThumbnails(preview);
+    console.log(thumbnail, 'hi');
     // push each object to data array
     data.push({
       name: filename,
