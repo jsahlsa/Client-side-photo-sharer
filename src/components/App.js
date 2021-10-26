@@ -3,27 +3,37 @@ import { saveAs } from 'file-saver';
 import JSZip from 'jszip';
 import Photo from './Photo';
 import images from '../img/*.jpg';
+import thumbs from '../img/thumbs/*.jpg';
 
-console.log(images[0]);
+console.log(thumbs);
 
-const DATA = handleData(images);
+const DATA = handleData(images, thumbs);
+console.log(DATA);
 
-function handleData(imageObject) {
+function handleData(imageObject, thumbs) {
   let data = [];
   // iterate over photo object
   for (let key in imageObject) {
     // split each key value on the period
+    // TODO - If thumbnail has same name add to each object
     let splitName = imageObject[key].split('.');
     // extract filename from array
     let filename = splitName[splitName.length - 2];
+    let thumbnail = '';
+    for (let thumb in thumbs) {
+      if (imageObject[key].split('.')[0] === thumbs[thumb].split('.')[0]) {
+        thumbnail = thumbs[thumb];
+      }
+    }
+    console.log(thumbnail);
     // push each object to data array
-    data.push({ name: filename, path: imageObject[key] });
+    data.push({ name: filename, path: imageObject[key], thumbnail: thumbnail });
   }
 
   return data;
 }
 
-console.log(handleData(images));
+//console.log(handleData(images));
 
 export default function App() {
   let width = window.screen.width;
@@ -106,6 +116,7 @@ export default function App() {
               photo={item.path}
               name={item.name}
               key={item.name}
+              thumbnail={item.thumbnail}
               width={width}
             />
           );

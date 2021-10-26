@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default function Component1({ name, photo, width }) {
+export default function Component1({ name, photo, thumbnail, width }) {
   
   return (
     <div className="Component1">
       <a download={name} href={photo} target="_blank" rel="noreferrer">
-        <img src={photo} alt={name} />
+        <img src={thumbnail} alt={name} />
       </a>
       <div
         className={
@@ -14,7 +14,6 @@ export default function Component1({ name, photo, width }) {
             : 'bottom-wrapper little-screen'
         }
       >
-        <p className="photo-name">{name}</p>
 
         <label htmlFor={name}>
           <input id={name} type="checkbox" />
