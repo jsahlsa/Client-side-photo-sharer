@@ -89,7 +89,7 @@ img {
   height: 250px;
   object-fit: cover;
   will-change: transform, filter;
-  transition: transform 0.2s linear;
+  transition: transform 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 img:hover {
