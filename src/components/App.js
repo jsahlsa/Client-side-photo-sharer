@@ -103,7 +103,7 @@ export default function App() {
     <div className="App" onChange={download}>
       <header>
         <h1>🎇 4th of July Photos 🎆</h1>
-        <h3>Tap and hold, or click to download</h3>
+        <h3>Tap to open in new page then hold, or click to download</h3>
         <h4>
           Click checkboxes on a desktop to download multiple as ZIP (May take a
           bit, photos are large)
